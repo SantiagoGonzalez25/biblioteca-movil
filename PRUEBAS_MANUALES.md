@@ -74,6 +74,8 @@
 | Como estudiante no existen los botones de portada | Pendiente | |
 | Perfil → **Actividad reciente** muestra los eventos `cover.*` | Pendiente | |
 
+> Adjunta las capturas en `evidencias/semana12/` (lista de archivos en `evidencias/semana12/README.md`). El flujo, permisos y manejo de fallos están documentados en `SERVICIO_FOTOS.md`.
+
 ## 5. Evidencia del Hito 3 (§6.6)
 
 - [ ] Repositorio del proyecto con el código y la documentación.
@@ -83,4 +85,5 @@
 - [ ] `ESTRATEGIA_CONFLICTOS.md` con la justificación de «gana el servidor».
 - [ ] Este registro completado con las pruebas en un teléfono real.
 - [ ] Video o capturas de los escenarios A y B.
+- [ ] Capturas de la semana 12 en `evidencias/semana12/` (permiso, cámara, portada, modo avión, estudiante y actividad).
 - [ ] `npm run typecheck`, `npx expo lint`, `npm test` y `npx expo export --platform android` en verde.

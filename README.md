@@ -81,6 +81,8 @@ Cubre cliente HTTP, sesión, SQLite, sincronización, flujo offline, componentes
 - `MODELO_AMENAZAS.md` — modelado de amenazas de la semana 10.
 - `ESTRATEGIA_CONFLICTOS.md` — justificación de «gana el servidor» (semana 11).
 - `PRUEBAS_MANUALES.md` — registro de pruebas en dispositivo.
+- `SERVICIO_FOTOS.md` — apartado de la semana 12: cámara, galería, permisos, compresión y subida de portadas.
+- `evidencias/semana12/` — capturas y video del flujo de portadas (se completan en el teléfono).
 
 ## Solución de problemas
 
