@@ -97,6 +97,7 @@ El microcurrículo exige registrar cada uso de IA con **propósito, evidencia, v
 | Sem. 12 | OpenCode · «Integra cámara/galería para subir la portada del libro» | Servicio de portadas con ImagePicker + ImageManipulator y permisos declarados en `app.json` (micrófono desactivado) | Contraste con la Guía 2 §6 y el código real; documentado en `SERVICIO_FOTOS.md`; pruebas en verde | **Aceptada** |
 | Cierre | OpenCode · «Ejecuta la verificación completa antes de entregar» | Comandos y salidas de verificación | Typecheck sin errores; lint limpio; 66 pruebas aprobadas; empaquetado Android correcto | **Aceptada** — la prueba contra API real queda opcional vía variables `E2E_*`, fuera del repositorio |
 | Cierre | OpenCode · «Audita la evidencia del repositorio contra la Guía 2» | Faltaban el modelo de amenazas y el documento de estrategia de conflictos; el README seguía siendo la plantilla | Contrasté §4.4 y §5.4 del PDF y revisé el código real antes de redactarlos | **Aceptada** — se crearon MODELO_AMENAZAS.md, ESTRATEGIA_CONFLICTOS.md, PRUEBAS_MANUALES.md y el README del proyecto |
+| Cierre | OpenCode · «Audita PRUEBAS_MANUALES.md contra la guía, sin saltar nada» | Faltaban el escenario C, la limpieza al cerrar sesión, los criterios §3.4/§4.4/§5.4/§6.6, los fallos de §6.3 y la verificación §7 | Contraste sección por sección con el PDF y el código; se añadieron las filas y checklists | **Aceptada** |
 
 ---
 

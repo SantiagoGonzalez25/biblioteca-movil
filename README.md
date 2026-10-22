@@ -80,7 +80,7 @@ Cubre cliente HTTP, sesión, SQLite, sincronización, flujo offline, componentes
 - `BITACORA_IA.md` — bitácora de uso de IA generativa (Sección 9).
 - `MODELO_AMENAZAS.md` — modelado de amenazas de la semana 10.
 - `ESTRATEGIA_CONFLICTOS.md` — justificación de «gana el servidor» (semana 11).
-- `PRUEBAS_MANUALES.md` — registro de pruebas en dispositivo.
+- `PRUEBAS_MANUALES.md` — registro de pruebas en dispositivo y criterios de evidencia (§3.4, §4.4, §5.4, §6.3, §6.6 y §7.2).
 - `SERVICIO_FOTOS.md` — apartado de la semana 12: cámara, galería, permisos, compresión y subida de portadas.
 - `evidencias/semana12/` — capturas y video del flujo de portadas (se completan en el teléfono).
 
