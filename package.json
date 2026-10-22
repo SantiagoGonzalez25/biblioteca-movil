@@ -51,7 +51,8 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "proxy:vercel": "node scripts/vercel-proxy.mjs"
   },
   "jest": {
     "preset": "jest-expo",

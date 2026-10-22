@@ -73,7 +73,7 @@ test-utils/            Dobles de prueba (SQLite de Node, fetch real, fakes)
 npm test
 ```
 
-Cubre cliente HTTP, sesión, SQLite, sincronización, flujo offline, componentes y utilidades. La prueba de integración `__tests__/e2e-api.test.ts` se omite por defecto: solo corre si defines `E2E_API_URL`, `E2E_STUDENT_EMAIL`, `E2E_STUDENT_PASSWORD`, `E2E_LIBRARIAN_EMAIL` y `E2E_LIBRARIAN_PASSWORD` en el entorno (nunca en el repositorio).
+Cubre cliente HTTP, sesión, SQLite, sincronización, flujo offline, componentes y utilidades. La prueba de integración `__tests__/e2e-api.test.ts` se omite por defecto: solo corre si defines `E2E_API_URL`, `E2E_STUDENT_EMAIL`, `E2E_STUDENT_PASSWORD`, `E2E_LIBRARIAN_EMAIL` y `E2E_LIBRARIAN_PASSWORD` en el entorno (nunca en el repositorio). Si la API de Vercel sigue protegida, define además `E2E_VERCEL_BYPASS` con el token de bypass; solo se usa en la terminal de pruebas.
 
 ## Documentación
 
@@ -90,3 +90,21 @@ Cubre cliente HTTP, sesión, SQLite, sincronización, flujo offline, componentes
 | La API responde 401 «Protected deployment» | El despliegue de Vercel tiene **Deployment Protection** (Vercel Authentication) activa | En Vercel: proyecto → **Settings → Deployment Protection → Vercel Authentication** → desactívala (o deja solo *Preview*) y vuelve a probar. No pongas un token de bypass en la app: quedaría expuesto |
 | El cambio de `.env` no se nota | Caché de Metro | `npx expo start -c` |
 | Credenciales rechazadas | Usuario no creado o Authentication deshabilitado en la API | Revisa la Guía 1 y crea los usuarios de prueba en `library_api` |
+
+### Si no puedes desactivar Deployment Protection (solo desarrollo)
+
+No pongas el token en `.env` ni en el código: todo lo que empieza con `EXPO_PUBLIC_` queda dentro del bundle. Para probar en tu PC, usa el proxy local:
+
+1. En una terminal, con el token solo en la variable de entorno:
+   ```powershell
+   $env:VERCEL_BYPASS_TOKEN="tu-token-de-vercel"
+   npm run proxy:vercel
+   ```
+2. En `.env`, apunta la app al proxy con la IP de tu PC (por ejemplo `http://192.168.1.8:8787`) y reinicia:
+   ```powershell
+   npx expo start -c
+   ```
+3. El teléfono debe estar en la misma red Wi-Fi. Si Windows pregunta por el firewall, permite Node.js en redes privadas.
+4. Al terminar, detén el proxy, restaura `EXPO_PUBLIC_API_URL` a la URL de Vercel y **rota o elimina el token** en Vercel (Settings → Deployment Protection → Protection Bypass for Automation).
+
+El proxy solo debe usarse mientras dure la prueba; no lo dejes corriendo ni lo publiques.

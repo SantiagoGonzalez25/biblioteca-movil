@@ -8,6 +8,10 @@
  *                     E2E_STUDENT_EMAIL=... E2E_STUDENT_PASSWORD=... \
  *                     E2E_LIBRARIAN_EMAIL=... E2E_LIBRARIAN_PASSWORD=... npx jest e2e-api
  *   (en library_api)  pnpm reset-demo      ← deja los préstamos como al inicio
+ *
+ * Si el despliegue de Vercel tiene Deployment Protection activa, define además
+ * E2E_VERCEL_BYPASS con el token de bypass. Es solo para tu terminal: nunca lo
+ * escribas en `.env`, en el código ni en Git.
  */
 import { randomUUID } from 'node:crypto';
 
@@ -33,6 +37,17 @@ const LIBRARIAN = {
 const configured =
   BASE && STUDENT.email && STUDENT.password && LIBRARIAN.email && LIBRARIAN.password;
 const maybe = configured ? describe : describe.skip;
+const BYPASS = process.env.E2E_VERCEL_BYPASS;
+
+/** `nodeFetch` + header de bypass opcional (solo para el entorno de pruebas). */
+const e2eFetch = ((input: string, init: RequestInit = {}) =>
+  nodeFetch(input, {
+    ...init,
+    headers: {
+      ...(init.headers as Record<string, string> | undefined),
+      ...(BYPASS ? { 'x-vercel-protection-bypass': BYPASS } : {}),
+    },
+  })) as typeof fetch;
 
 class MemoryStorage implements SecureStorage {
   data = new Map<string, string>();
@@ -43,12 +58,12 @@ class MemoryStorage implements SecureStorage {
 
 /** Construye una "instalación" completa de la app: sesión + API + BD local + servicios. */
 async function installApp(credentials: { email: string; password: string }) {
-  const publicApi = createApiClient({ baseUrl: BASE!, timeoutMs: 15_000, fetchImpl: nodeFetch });
+  const publicApi = createApiClient({ baseUrl: BASE!, timeoutMs: 15_000, fetchImpl: e2eFetch });
   const session = new SessionManager(new MemoryStorage(), publicApi);
   const api = createApiClient({
     baseUrl: BASE!,
     timeoutMs: 15_000,
-    fetchImpl: nodeFetch,
+    fetchImpl: e2eFetch,
     auth: {
       getAccessToken: () => session.getAccessToken(),
       refreshSession: () => session.refresh(),
