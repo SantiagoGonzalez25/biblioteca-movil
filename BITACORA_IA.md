@@ -4,7 +4,7 @@
 **Asignatura:** Desarrollo Móvil (PREISESP17015) · Unidad 03 · Semanas 9 a 12
 **Herramienta de IA:** asistente de código (OpenCode) integrado en el editor, con revisión humana permanente
 **Documento:** cumple la sección 9 de la Guía 2 («Bitácora de uso de IA generativa») y forma parte de la evidencia del Hito 3
-**Última actualización:** 17/10/2026
+**Última actualización:** 21/10/2026
 
 > **Regla de oro del proyecto (Guía 2, §9).** La IA se usó para explorar, explicar, depurar, generar casos de prueba y documentar. La arquitectura y las decisiones fueron del autor; cada línea entregada fue revisada, contrastada y es explicable y modificable sin el asistente.
 
