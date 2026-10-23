@@ -13,10 +13,14 @@ expo-env.d.ts
 .kotlin/
 *.orig.*
 *.jks
+*.keystore
 *.p8
 *.p12
 *.key
 *.mobileprovision
+google-services.json
+GoogleService-Info.plist
+credentials.json
 
 # Metro
 .metro-health-check*
@@ -25,14 +29,19 @@ expo-env.d.ts
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+coverage/
+*.log
 
-# macOS
+# macOS / Windows
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.pem
 
-# local env files
+# local env files: solo se versiona .env.example
 .env
-.env*.local
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
@@ -42,3 +51,11 @@ example
 # generated native folders
 /ios
 /android
+
+# material del curso y evidencias pesadas (se enlazan fuera del repo)
+Guia_*.pdf
+evidencias/**/*.mp4
+evidencias/**/*.mov
+
+# configuración local de herramientas
+.claude/settings.local.json
