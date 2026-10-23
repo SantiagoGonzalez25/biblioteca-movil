@@ -81,14 +81,12 @@ Cubre cliente HTTP, sesión, SQLite, sincronización, flujo offline, componentes
 - `MODELO_AMENAZAS.md` — modelado de amenazas de la semana 10.
 - `ESTRATEGIA_CONFLICTOS.md` — justificación de «gana el servidor» (semana 11).
 - `PRUEBAS_MANUALES.md` — registro de pruebas en dispositivo y criterios de evidencia (§3.4, §4.4, §5.4, §6.3, §6.6 y §7.2).
-- `SERVICIO_FOTOS.md` — apartado de la semana 12: cámara, galería, permisos, compresión y subida de portadas.
-- `evidencias/semana12/` — capturas y video del flujo de portadas (se completan en el teléfono).
 
 ## Solución de problemas
 
-| Síntoma | Causa probable | Solución |
-| --- | --- | --- |
-| «No hay conexión con el servidor» | `EXPO_PUBLIC_API_URL` con `localhost`, IP incorrecta u otra red | Usa la IP del PC, la misma red Wi-Fi y reinicia con `npx expo start -c` |
-| La API responde 401 «Protected deployment» | El despliegue de Vercel tiene **Deployment Protection** (Vercel Authentication) activa | En Vercel: proyecto → **Settings → Deployment Protection → Vercel Authentication** → desactívala (o deja solo *Preview*) y vuelve a probar. No pongas un token de bypass en la app: quedaría expuesto |
-| El cambio de `.env` no se nota | Caché de Metro | `npx expo start -c` |
-| Credenciales rechazadas | Usuario no creado o Authentication deshabilitado en la API | Revisa la Guía 1 y crea los usuarios de prueba en `library_api` |
+| Síntoma                                    | Causa probable                                                                         | Solución                                                                                                                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| «No hay conexión con el servidor»          | `EXPO_PUBLIC_API_URL` con `localhost`, IP incorrecta u otra red                        | Usa la IP del PC, la misma red Wi-Fi y reinicia con `npx expo start -c`                                                                                                                               |
+| La API responde 401 «Protected deployment» | El despliegue de Vercel tiene **Deployment Protection** (Vercel Authentication) activa | En Vercel: proyecto → **Settings → Deployment Protection → Vercel Authentication** → desactívala (o deja solo _Preview_) y vuelve a probar. No pongas un token de bypass en la app: quedaría expuesto |
+| El cambio de `.env` no se nota             | Caché de Metro                                                                         | `npx expo start -c`                                                                                                                                                                                   |
+| Credenciales rechazadas                    | Usuario no creado o Authentication deshabilitado en la API                             | Revisa la Guía 1 y crea los usuarios de prueba en `library_api`                                                                                                                                       |
